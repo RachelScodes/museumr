@@ -15,6 +15,8 @@ let artistSchema = new mongoose.Schema({
 	// description
 	description: String,
 
+	paintings: Array,
+
 	created_at: Date,
 
 	updated_at: Date
@@ -22,7 +24,7 @@ let artistSchema = new mongoose.Schema({
 });
 
 artistSchema.pre('save', (next) => {
-	let now = new Data();
+	let now = new Date();
 
 	this.updated_at = now;
 	if ( !this.created_at ){

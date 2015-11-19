@@ -1,9 +1,9 @@
 'use strict'
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 // ~~~ END SETUP
 
-var Painting = new mongoose.Schema({
+let paintingSchema = new mongoose.Schema({
    // title
    title: String,
    // image url
@@ -17,7 +17,7 @@ var Painting = new mongoose.Schema({
 });
 
 paintingSchema.pre('save', (next) => {
-	let now = new Data();
+	let now = new Date();
 
 	this.updated_at = now;
 	if ( !this.created_at ){
