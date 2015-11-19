@@ -11,7 +11,6 @@ var Painting = new mongoose.Schema({
    // year
    year_made: Number,
 
-
    created_at: Date,
 
    updated_at: Date
