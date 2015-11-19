@@ -10,7 +10,23 @@ var Painting = new mongoose.Schema({
    img_url: String,
    // year
    year_made: String
-})
 
 
-painting.Schema.pre('save', (next)=>)
+   created_at: Date,
+
+   updated_at: Date
+});
+
+paintingSchema.pre('save', (next) => {
+	let now = new Data();
+
+	this.updated_at = now;
+	if ( !this.created_at ){
+		this.created_at = now;
+	}
+	next();
+});
+
+let Painting = mongoose.model('Painting', paintingSchema);
+
+module.exports = Painting;
