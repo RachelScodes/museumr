@@ -9,6 +9,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+let Artist = require('./models/Artist');
+let Painting = require('./models/Painting');
+
 var mongoose = require('mongoose');
 //Connect to mongodb
 mongoose.connect('mongodb://localhost:27017/museumrApp', function(err) {
@@ -28,6 +31,9 @@ app.get('/museumr', (req,res) => {
 
 app.get('/museumr/artists', (req,res) => {
    console.log('show all artists');
+   // console.log('data');
+   let artistList = Artist.find();
+   res.send(artistList);
 })
 
 app.post('/museumr/artists', (req,res) => {
@@ -46,7 +52,31 @@ app.delete('/museumr/artist/:artist_id', (req,res) => {
    console.log('delete artist with this id: ' + req.params.artist_id);
 })
 
+
+// mongoose magic
+	// !!! we call our database methods on our models !!!
+Artist.find
+
+let parseArtists = (data, attr) => {
+	// jsonData = JSON.parse(data);
+	newData = [];
+	for (let i = 0; i < jsonData.length; i++) {
+		newData.push(jsonData[i][attr]);
+	}
+	return newData;
+}
+
+
+
+
 // helper functions go here.
+
+
+
+
+
+
+
 
 
 // server goes here:
