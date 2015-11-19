@@ -32,7 +32,7 @@ app.get('/museumr', (req,res) => {
 app.get('/museumr/artists', (req,res) => {
    console.log('show all artists');
    // console.log('data');
-	Artist.find({}, (err, result) => {
+   Artist.find({}, (err, result) => {
 	   console.log(result);
 	   res.send(result);
 
@@ -41,18 +41,29 @@ app.get('/museumr/artists', (req,res) => {
 
 app.post('/museumr/artists', (req,res) => {
    console.log('create an artist');
+
 })
 
-app.get('/museumr/artist/:artist_id', (req,res) => {
-   console.log('show one artist with this id: ' + req.params.artist_id);
+app.get('/museumr/artist/:artist_name', (req,res) => {
+   console.log('show one artist with this id: ' + req.params.artist_name);
+   let artistName = req.params.artist_name
+   let paintingID;
+   Artist.find({name: artistName }, (err, result) => {
+	   Painting.find({_id: result.paintings}, (error, paintings) => {
+		//   console.log(result);
+		  console.log(paintings);
+		  res.send(result);
+
+	   })
+  })
 })
 
-app.put('/museumr/artist/:artist_id', (req,res) => {
-   console.log('edit/update artist with this id: ' + req.params.artist_id);
+app.put('/museumr/artist/:artist_name', (req,res) => {
+   console.log('edit/update artist with this id: ' + req.params.artist_name);
 })
 
-app.delete('/museumr/artist/:artist_id', (req,res) => {
-   console.log('delete artist with this id: ' + req.params.artist_id);
+app.delete('/museumr/artist/:artist_name', (req,res) => {
+   console.log('delete artist with this id: ' + req.params.artist_name);
 })
 
 
