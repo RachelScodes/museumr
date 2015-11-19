@@ -9,7 +9,6 @@ var Painting = new mongoose.Schema({
    // image url
    img_url: String,
    // year
-
    year_made: Number,
 
    created_at: Date,
