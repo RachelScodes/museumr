@@ -15,6 +15,8 @@ let artistSchema = new mongoose.Schema({
 	// description
 	description: String,
 
+	paintings: Array,
+
 	created_at: Date,
 
 	updated_at: Date
