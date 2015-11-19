@@ -19,6 +19,7 @@ mongoose.connect('mongodb://localhost:27017/museumrApp', function(err) {
   }
 });
 
+// ~~~~ END SETUP
 
 // routes go here.
 app.get('/museumr', (req,res) => {

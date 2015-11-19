@@ -22,7 +22,7 @@ let artistSchema = new mongoose.Schema({
 });
 
 artistSchema.pre('save', (next) => {
-	let now = new Data();
+	let now = new Date();
 
 	this.updated_at = now;
 	if ( !this.created_at ){
