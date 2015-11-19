@@ -49,9 +49,11 @@ app.get('/museumr/artist/:artist_name', (req,res) => {
    let artistName = req.params.artist_name
    let paintingID;
    Artist.find({name: artistName }, (err, result) => {
-	   Painting.find({_id: result.paintings}, (error, paintings) => {
-		//   console.log(result);
-		  console.log(paintings);
+	//    console.log(result[0].paintings);
+	   Painting.find({"_id": {$in: result[0].paintings}}, (error, paintings) => {
+		//   console.log(result[0].paintings);
+		//   console.log(paintings);
+		result.push(paintings)
 		  res.send(result);
 
 	   })
