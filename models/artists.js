@@ -11,7 +11,7 @@ let artistSchema = new mongoose.Schema({
 	// nationality
 	nationality: String,
 	// birthYear
-	birthYear: String,
+	birthYear: Number,
 	// description
 	description: String,
 
