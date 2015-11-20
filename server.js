@@ -56,6 +56,7 @@ app.get('/museumr', (req,res) => {
 // 	});
 // })
 
+
 app.post('/museumr/artists', (req,res) => {
    console.log('create an artist');
 

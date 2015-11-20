@@ -16,15 +16,15 @@ let paintingSchema = new mongoose.Schema({
    updated_at: Date
 });
 
-paintingSchema.pre('save', (next) => {
-	let now = new Date();
-
-	this.updated_at = now;
-	if ( !this.created_at ){
-		this.created_at = now;
-	}
-	next();
-});
+// paintingSchema.pre('save', (next) => {
+// 	let now = new Date();
+//
+// 	this.updated_at = now;
+// 	if ( !this.created_at ){
+// 		this.created_at = now;
+// 	}
+// 	next();
+// });
 
 let Painting = mongoose.model('Painting', paintingSchema);
 
