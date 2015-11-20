@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
 var express = require('express');
 var app = express();
-app.use(express.static('./public'))
+app.use(express.static('./public'));
 
 var bodyParser = require('body-parser');
 
@@ -30,7 +30,7 @@ app.get('/museumr', (req,res) => {
    console.log('IT\'S ALIIIIIVE!!!');
 })
 
-app.get('/museumr/artists', (req,res) => {
+app.get('/', (req,res) => {
    console.log('show all artists');
    // console.log('data');
    Artist.find({}, (err, result) => {
