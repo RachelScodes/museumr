@@ -4,33 +4,41 @@ $(() => {
 
 	let renderTemplate_artists = Handlebars.compile($('template#artist-template').html());
 
+	// Artists -- Display All
+	$('.artist-link').click((event) => {
+		$.get('/museumr/artists', renderArtists, 'json')
+	});
 
-	let renderTemplate_artists = Handlebars.compile($('template#painting-template').html());
-
-	let renderTemplate_artists = Handlebars.compile($('template#artist-form-template').html());
-
-	let renderTemplate_artists = Handlebars.compile($('template#artist-edit-template').html());
-
-	let renderTemplate_artists = Handlebars.compile($('template#painting-form-template').html());
+	let renderArtists = (data) => {
+		let list = $('.results-div');
+		let compiledTemplate = renderTemplate_artists(data);
+		list.html('').append(compiledTemplate);
+	}
 
 
-	// Artists --
-	$('.artist-link').click
+	let renderTemplate_paintings = Handlebars.compile($('template#painting-template').html());
 
-	// Paintings --
-	$('.paintings-link').
+	// Paintings -- Display All
+	$('.paintings-link').click((event) => {
+		$.get('/museumr/artists/:artist_name', render)
+	});
 
-	// Add Artist
+
+
+	let renderTemplate_ = Handlebars.compile($('template#artist-form-template').html());
+
+	let renderTemplate_ = Handlebars.compile($('template#artist-edit-template').html());
+
+	let renderTemplate_ = Handlebars.compile($('template#painting-form-template').html());
+
+
+
+
+	// Add Artist -- post new Artist
 	$('.new-artist')
 
-	// Add Painting
+	// Add Painting -- post new Painting (to Artist)
 	$('.new-painting')
-
-
-/*      <li class="artist-link">Artists</li>
-      <li class="paintings-link">Paintings</li>
-      <li class="new-artist">Add Artist</li>
-      <li class="new-painting">Add Painting</li>*/
 
 
 

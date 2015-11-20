@@ -27,13 +27,28 @@
 
   <div class="form-div"></div>
 
-  <template id="painting-template">
-	  {{# }}
-  </template>
-
   <template id="artist-template">
 	  {{#each artist}}
-	  <
+	  <h4>{{this.name}}</h4>
+	  <img src="{{this.photo}}" />
+	  <ul>
+		  <li>
+			{{this.nationality}}
+		  </li>
+		  <li>
+			{{this.birthyear}}
+		  </li>
+		  <li>
+			  <p>
+				{{this.description}}
+			  </p>
+		  </li>
+	</ul>
+	{{/each}}
+  </template>
+
+  <template id="painting-template">
+	  {{# }}
   </template>
 
   <template id="artist-form-template">
