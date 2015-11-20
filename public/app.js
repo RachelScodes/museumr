@@ -6,12 +6,13 @@ $(function(){
 	let renderTemplate_artists = Handlebars.compile($('template#artist-template').html());
 
 	$('.artist-link').click((event) => {
+		event.preventDefault();
 		$.get('/museumr/artists', renderArtists, 'json')
 	});
 
 	let renderArtists = (data) => {
 		let list = $('.results-div');
-		let compiledTemplate = renderTemplate_artists(data);
+		let compiledTemplate = renderTemplate_artists({test: data});
 		list.html('').append(compiledTemplate);
 	}
 
