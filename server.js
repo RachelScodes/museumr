@@ -1,8 +1,9 @@
 'use strict'
-let express = require('express'),
-    logger = require('morgan'),
+let express    = require('express'),
+    router     = express.Router(),
+    logger     = require('morgan'),
     bodyParser = require('body-parser'),
-    app = express();                      // set up express app
+    app        = express();               // set up express app
 app.use(bodyParser.json());               // parse our json
 app.use(bodyParser.urlencoded(
    { extended: false }
@@ -11,13 +12,9 @@ app.use(express.static('./public'));      // require public files
 // TODO - why not use the version below?
 // app.use(express.static(path.join(__dirname, 'public')));
 
+///////////////
 //~END SETUP~//
-
-//////////////
-//  MODELS  //
-//////////////
-let Artist = require('./models/Artist');
-let Painting = require('./models/Painting');
+///////////////
 
 //////////////
 // DATABASE //
@@ -32,21 +29,32 @@ mongoose.connect('mongodb://localhost:27017/museumrApp', function(err) {
 });
 
 //////////////
+//  MODELS  //
+//////////////
+let Artist = require('./models/Artist');
+let Painting = require('./models/Painting');
+
+//////////////
 //  ROUTES  //
 //////////////
+
+let artistsRoutes = require('./controllers/artists_controller');
+app.use('/artists', artistsRoutes);
+
+
 app.get('/museumr', (req,res) => {
    console.log('IT\'S ALIIIIIVE!!!');
 })
 
-app.get('/museumr/artists', (req,res) => {
-   console.log('show all artists');
-   // console.log('data');
-   Artist.find({}, (err, result) => {
-	   console.log(result);
-	   res.send(result);
-
-	});
-})
+// app.get('/museumr/artists', (req,res) => {
+//    console.log('show all artists');
+//    // console.log('data');
+//    Artist.find({}, (err, result) => {
+// 	   console.log(result);
+// 	   res.send(result);
+//
+// 	});
+// })
 
 app.post('/museumr/artists', (req,res) => {
    console.log('create an artist');
