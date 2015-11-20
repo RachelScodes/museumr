@@ -25,11 +25,11 @@ $(() => {
 
 
 
-	let renderTemplate_ = Handlebars.compile($('template#artist-form-template').html());
+	let renderTemplate_artistForm = Handlebars.compile($('template#artist-form-template').html());
 
-	let renderTemplate_ = Handlebars.compile($('template#artist-edit-template').html());
+	let renderTemplate_artistEdit = Handlebars.compile($('template#artist-edit-template').html());
 
-	let renderTemplate_ = Handlebars.compile($('template#painting-form-template').html());
+	let renderTemplate_paintingForm = Handlebars.compile($('template#painting-form-template').html());
 
 
 
