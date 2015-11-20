@@ -15,7 +15,7 @@ $(function(){
 		console.log('hit2');
 		// console.log(data);
 
-		$.get('/', renderArtists, 'json')
+		$.get('/museumr', renderArtists, 'json')
 	});
 
 	var renderArtists = (data) => {
@@ -23,7 +23,7 @@ $(function(){
 		console.log('hit4');
 		console.log(data);
 
-		var compiledTemplate = renderTemplate_artists(data);
+		var compiledTemplate = renderTemplate_artists({test: data});
 		$list.html('').append(compiledTemplate);
 	}
 

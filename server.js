@@ -27,10 +27,6 @@ mongoose.connect('mongodb://localhost:27017/museumrApp', function(err) {
 
 // routes go here.
 app.get('/museumr', (req,res) => {
-   console.log('IT\'S ALIIIIIVE!!!');
-})
-
-app.get('/', (req,res) => {
    console.log('show all artists');
    // console.log('data');
    Artist.find({}, (err, result) => {
