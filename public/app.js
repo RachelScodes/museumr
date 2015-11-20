@@ -4,7 +4,7 @@ $(function(){
 
 	console.log('loaded bro');
 	console.log('hit1');
-	// console.log(data);
+
 
 	// Artists -- Display All
 	var renderTemplate_artists = Handlebars.compile($('template#artist-template').html());
@@ -12,8 +12,8 @@ $(function(){
 	$('.artist-link').click((event) => {
 		event.preventDefault();
 
-		console.log('hit2');
-		// console.log(data);
+		console.log('hit3');
+
 
 		$.get('/museumr', renderArtists, 'json')
 	});
@@ -23,12 +23,12 @@ $(function(){
 		console.log('hit4');
 		console.log(data);
 
-		var compiledTemplate = renderTemplate_artists({test: data});
+		var compiledTemplate = renderTemplate_artists({artist: data});
 		$list.html('').append(compiledTemplate);
 	}
 
-console.log('hit3');
-// console.log(data);
+console.log('hit2');
+
 
 	// // Paintings -- Display All
 	// var renderTemplate_paintings = Handlebars.compile($('template#painting-template').html());
