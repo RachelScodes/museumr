@@ -5,9 +5,10 @@ var app = express();
 app.use(express.static('./public'))
 
 var bodyParser = require('body-parser');
-// what's the diff bw true and false?
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 let Artist = require('./models/Artists');
 let Painting = require('./models/Paintings');
