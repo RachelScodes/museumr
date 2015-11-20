@@ -1,20 +1,28 @@
 'use strict'
+let express = require('express'),
+    logger = require('morgan'),
+    bodyParser = require('body-parser'),
+    app = express();                      // set up express app
+app.use(bodyParser.json());               // parse our json
+app.use(bodyParser.urlencoded(
+   { extended: false }
+));
+app.use(express.static('./public'));      // require public files
+// TODO - why not use the version below?
+// app.use(express.static(path.join(__dirname, 'public')));
 
-var express = require('express');
-var app = express();
-app.use(express.static('./public'))
+//~END SETUP~//
 
-var bodyParser = require('body-parser');
+//////////////
+//  MODELS  //
+//////////////
+let Artist = require('./models/Artist');
+let Painting = require('./models/Painting');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
-let Artist = require('./models/Artists');
-let Painting = require('./models/Paintings');
-
+//////////////
+// DATABASE //
+//////////////
 var mongoose = require('mongoose');
-//Connect to mongodb
 mongoose.connect('mongodb://localhost:27017/museumrApp', function(err) {
   if (err) {
     console.log('connection error', err);
@@ -23,9 +31,9 @@ mongoose.connect('mongodb://localhost:27017/museumrApp', function(err) {
   }
 });
 
-// ~~~~ END SETUP
-
-// routes go here.
+//////////////
+//  ROUTES  //
+//////////////
 app.get('/museumr', (req,res) => {
    console.log('IT\'S ALIIIIIVE!!!');
 })
@@ -71,17 +79,17 @@ app.delete('/museumr/artist/:artist_name', (req,res) => {
 
 
 // mongoose magic
-	// !!! we call our database methods on our models !!!
-Artist.find
+// !!! we call our database methods on our models !!!
+// Artist.find
 
-let parseArtists = (data) => {
-	jsonData = JSON.parse(data);
-	newData = [];
-	for (let i = 0; i < jsonData.length; i++) {
-		newData.push(jsonData[i]);
-	}
-	return newData;
-}
+// let parseArtists = (data) => {
+// 	jsonData = JSON.parse(data);
+// 	newData = [];
+// 	for (let i = 0; i < jsonData.length; i++) {
+// 		newData.push(jsonData[i]);
+// 	}
+// 	return newData;
+// }
 
 
 
