@@ -30,29 +30,30 @@ $(function(){
 console.log('hit2');
 
 
+	// Add Artist -- post new Artist
+	var renderTemplate_artistForm = Handlebars.compile($('template#artist-form-template').html());
+	$('.new-artist')
+
+	var renderTemplate_artistEdit = Handlebars.compile($('template#artist-edit-template').html());
+
+
+	// Add Painting -- post new Painting (to Artist)
+
 	// // Paintings -- Display All
 	// var renderTemplate_paintings = Handlebars.compile($('template#painting-template').html());
 	//
 	// $('.paintings-link').click((event) => {
 	// 	$.get('/museumr/artists/:artist_name', render)
 	// });
-	//
-	//
-	//
-	// var renderTemplate_artistForm = Handlebars.compile($('template#artist-form-template').html());
-	//
-	// var renderTemplate_artistEdit = Handlebars.compile($('template#artist-edit-template').html());
-	//
+
+	// $('.new-painting')
+
 	// var renderTemplate_paintingForm = Handlebars.compile($('template#painting-form-template').html());
 
 
 
 
-	// // Add Artist -- post new Artist
-	// $('.new-artist')
-	//
-	// // Add Painting -- post new Painting (to Artist)
-	// $('.new-painting')
+
 
 
 
