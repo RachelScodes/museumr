@@ -43,6 +43,7 @@ app.use('/artists', artistsRoutes);
 
 
 app.get('/museumr', (req,res) => {
+<<<<<<< HEAD
    console.log('IT\'S ALIIIIIVE!!!');
 })
 
@@ -55,6 +56,16 @@ app.get('/museumr', (req,res) => {
 //
 // 	});
 // })
+=======
+   console.log('show all artists');
+   // console.log('data');
+   Artist.find({}, (err, result) => {
+	   console.log(result);
+	   res.send(result);
+
+	});
+})
+>>>>>>> trevd
 
 app.post('/museumr/artists', (req,res) => {
    console.log('create an artist');
