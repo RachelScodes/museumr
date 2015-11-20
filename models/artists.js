@@ -23,15 +23,15 @@ let artistSchema = new mongoose.Schema({
 
 });
 
-artistSchema.pre('save', (next) => {
-	let now = new Date();
-
-	this.updated_at = now;
-	if ( !this.created_at ){
-		this.created_at = now;
-	}
-	next();
-});
+// artistSchema.pre('save', (next) => {
+// 	let now = new Date();
+//
+// 	this.updated_at = now;
+// 	if ( !this.created_at ){
+// 		this.created_at = now;
+// 	}
+// 	next();
+// });
 
 let Artist = mongoose.model('Artist', artistSchema);
 
